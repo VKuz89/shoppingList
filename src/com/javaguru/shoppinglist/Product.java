@@ -13,7 +13,7 @@ public class Product {
     private Category category;
     private BigDecimal discount;
     private String description;
-
+//
     public void setDiscount(BigDecimal discount) {
         BigDecimal firstLimit = new BigDecimal("0");
         BigDecimal secondLimit = new BigDecimal("100");
