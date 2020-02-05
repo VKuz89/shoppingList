@@ -1,8 +1,6 @@
-package com.javaguru.shoppinglist;
+package com.javaguru.shoppinglist.ProductService;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class Product {
@@ -13,17 +11,13 @@ public class Product {
     private Category category;
     private BigDecimal discount;
     private String description;
-//
+
     public void setDiscount(BigDecimal discount) {
-        BigDecimal firstLimit = new BigDecimal("0");
-        BigDecimal secondLimit = new BigDecimal("100");
-        if (discount.compareTo(firstLimit) > 0 && discount.compareTo(secondLimit) < 0) {
-            this.discount = discount;
-            discount.divide(new BigDecimal(100));
-            price = price.subtract(price.multiply(discount.divide(new BigDecimal(100))));
-        } else {
-            System.out.println("Please enter valid discount value!");
-        }
+        this.discount = discount;
+    }
+
+    public BigDecimal getDiscount() {
+        return discount;
     }
 
     public Long getId() {
@@ -43,11 +37,7 @@ public class Product {
     }
 
     public void setName(String name) {
-        if (name.length() > 3 && name.length() < 32) {
             this.name = name;
-        } else {
-            System.out.println("The name length should be  between 3 and 32 symbols!");
-        }
     }
 
     public BigDecimal getPrice() {
@@ -55,11 +45,17 @@ public class Product {
     }
 
     public void setPrice(BigDecimal price) {
-        if (price.compareTo(BigDecimal.ZERO) > 0) {
-            this.price = price;
-        } else {
-            System.out.println("Price should be larger than zero!");
-        }
+        this.price=price;
+        BigDecimal result;
+        getDiscount();
+       if (discount.equals(BigDecimal.ZERO)) {
+           this.price = price;
+     } else {
+        result = price.divide(new BigDecimal (100));
+        this.price = price.multiply(result);
+
+//            this.price = price.multiply(price.divide(new BigDecimal(100)));
+     }
     }
 
 
@@ -79,6 +75,10 @@ public class Product {
             this.category = null;
         }
         }
+
+    public Category getCategory() {
+        return category;
+    }
 
     @Override
     public String toString() {
