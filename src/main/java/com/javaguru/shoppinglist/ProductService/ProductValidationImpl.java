@@ -42,7 +42,7 @@ public class ProductValidationImpl implements ProductValidation {
     @Override
     public boolean isCategoryValid(Integer categoryNumber) {
         boolean isValid = false;
-        if (categoryNumber >= 0 && categoryNumber <= 5){
+        if (categoryNumber >= 0 && categoryNumber <= 5) {
             isValid = true;
         } else
         {
