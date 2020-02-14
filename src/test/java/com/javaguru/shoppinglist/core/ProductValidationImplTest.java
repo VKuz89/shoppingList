@@ -1,11 +1,10 @@
 package com.javaguru.shoppinglist.ProductService;
 
-import com.javaguru.shoppinglist.core.ProductValidationImpl;
 import org.junit.Test;
 
 import java.math.BigDecimal;
-import static org.junit.Assert.assertEquals;
 
+import static org.junit.Assert.*;
 
 public class ProductValidationImplTest {
     ProductValidationImpl productValidation = new ProductValidationImpl();
@@ -19,9 +18,6 @@ public class ProductValidationImplTest {
     @Test
     public void nameValidationTestLongName(){
         String name = "qwertyuiopasdfghjklzxcvbnmqwerty";
-
-
-
         boolean isNameValid = productValidation.isNameValid(name);
         assertEquals(true,isNameValid);
     }

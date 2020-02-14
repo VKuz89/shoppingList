@@ -6,8 +6,7 @@ import java.math.BigDecimal;
 
 public class ProductInitialization {
     ProductRepositoryImpl database = new ProductRepositoryImpl();
-
-    public Product productInit(String productName, BigDecimal productPrice, int categoryNumber, BigDecimal discount, String description) {
+    public Product productInit (String productName, BigDecimal productPrice, int categoryNumber, BigDecimal discount, String description){
         Product product = new Product();
         product.setName(productName);
         product.setDiscount(discount);
