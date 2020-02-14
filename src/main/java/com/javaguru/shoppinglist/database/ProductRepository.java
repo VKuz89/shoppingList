@@ -1,6 +1,6 @@
-package com.javaguru.shoppinglist.Database;
+package com.javaguru.shoppinglist.database;
 
-import com.javaguru.shoppinglist.ProductService.Product;
+import com.javaguru.shoppinglist.core.Product;
 
 public interface ProductRepository {
     Product insert (Long productID, Product product);

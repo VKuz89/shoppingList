@@ -1,9 +1,10 @@
-package com.javaguru.shoppinglist.UI;
+package com.javaguru.shoppinglist.ui;
 
-import com.javaguru.shoppinglist.Database.ProductRepositoryImpl;
-import com.javaguru.shoppinglist.ProductService.Product;
-import com.javaguru.shoppinglist.ProductService.ProductInitialization;
-import com.javaguru.shoppinglist.ProductService.ProductValidationImpl;
+import com.javaguru.shoppinglist.core.ProductValidation;
+import com.javaguru.shoppinglist.database.ProductRepositoryImpl;
+import com.javaguru.shoppinglist.core.Product;
+import com.javaguru.shoppinglist.core.ProductInitialization;
+import com.javaguru.shoppinglist.core.ProductValidationImpl;
 
 import java.math.BigDecimal;
 import java.util.*;
@@ -12,9 +13,15 @@ class ShoppingListApplication {
 
     public static void main(String[] args) {
     ProductRepositoryImpl database = new ProductRepositoryImpl();
-    Long productIdSequence = 0L;
+
+
+    Long productIdSequence = 0L;  // TODO: move it to ProductRepositoryImpl
+        // It is Database responsibility to assign ID to newly created domain object.
+
     ProductInitialization productInitialization = new ProductInitialization();
-    ProductValidationImpl productValidation = new ProductValidationImpl();
+
+    // Use interface where possible.
+    ProductValidation productValidation = new ProductValidationImpl();
 
         while (true) {
             Scanner scanner = new Scanner(System.in);
@@ -27,6 +34,8 @@ class ShoppingListApplication {
                 Integer userInput = Integer.valueOf(scanner.nextLine());
                 switch (userInput) {
                     case 1:
+                        // move each case code to separate method!
+                        // simplify this method! If you put all code to one method this will be bad unreadable code.
                         Product product;
                             String name;
                             Integer categoryNumber;

@@ -1,4 +1,4 @@
-package com.javaguru.shoppinglist.ProductService;
+package com.javaguru.shoppinglist.core;
 
 import java.math.BigDecimal;
 
@@ -91,4 +91,7 @@ public class Product {
                 ", description='" + description + '\'' +
                 '}';
     }
+
+    // TODO implement equals and hash code methods here!
+
 }

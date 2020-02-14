@@ -1,10 +1,8 @@
-package com.javaguru.shoppinglist.ProductService;
+package com.javaguru.shoppinglist.core;
 
 import org.junit.Test;
 
 import java.math.BigDecimal;
-
-import static org.junit.Assert.*;
 
 public class ProductValidationImplTest {
     ProductValidationImpl productValidation = new ProductValidationImpl();
