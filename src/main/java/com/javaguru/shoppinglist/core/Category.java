@@ -1,4 +1,4 @@
-package com.javaguru.shoppinglist.ProductService;
+package com.javaguru.shoppinglist.core;
 
 public enum Category {
     MILK,

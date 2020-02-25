@@ -1,6 +1,7 @@
-package com.javaguru.shoppinglist.ProductService;
+package com.javaguru.shoppinglist.core;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 
 public class Product {
@@ -47,17 +48,31 @@ public class Product {
     public void setPrice(BigDecimal price) {
         this.price=price;
         BigDecimal result;
-        getDiscount();
        if (discount.equals(BigDecimal.ZERO)) {
            this.price = price;
      } else {
-        result = price.divide(new BigDecimal (100));
-        this.price = price.multiply(result);
-
-//            this.price = price.multiply(price.divide(new BigDecimal(100)));
+        result = price.multiply(discount.divide(new BigDecimal(100)));
+        this.price = price.subtract(result);
      }
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return Objects.equals(id, product.id) &&
+                Objects.equals(name, product.name) &&
+                Objects.equals(price, product.price) &&
+                category == product.category &&
+                Objects.equals(discount, product.discount) &&
+                Objects.equals(description, product.description);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, price, category, discount, description);
+    }
 
     public void setCategory(int catNumber) {
         Category category = null;

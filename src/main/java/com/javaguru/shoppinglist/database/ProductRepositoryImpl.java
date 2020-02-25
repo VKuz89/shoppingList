@@ -1,21 +1,24 @@
-package com.javaguru.shoppinglist.Database;
+package com.javaguru.shoppinglist.database;
 
-import com.javaguru.shoppinglist.ProductService.Product;
+import com.javaguru.shoppinglist.core.Product;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class ProductRepositoryImpl implements ProductRepository {
     Map<Long, Product> localDatabase = new HashMap<>();
+    private Long productIdSequence = 0L;
 
     @Override
-    public Product insert(Long productID, Product product) {
-        localDatabase.put(product.getId(),product);
+    public Product insert(Product product) {
+        product.setId(productIdSequence);
+        localDatabase.put(productIdSequence,product);
+        productIdSequence++;
         return null;
     }
     @Override
     public Product read(Long productID) {
-        return localDatabase.get(productID);
+            return localDatabase.get(productID);
     }
 
     @Override
@@ -30,6 +33,10 @@ public class ProductRepositoryImpl implements ProductRepository {
     public Product delete(Long productID) {
         localDatabase.remove(productID);
         return null;
+    }
+
+    public Long getProductIdSequence() {
+        return productIdSequence;
     }
 
 }
