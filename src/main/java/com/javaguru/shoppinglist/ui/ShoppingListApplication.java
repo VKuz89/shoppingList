@@ -7,7 +7,7 @@ import com.javaguru.shoppinglist.core.ProductValidationImpl;
 
 import java.math.BigDecimal;
 import java.util.*;
-//
+
 class ShoppingListApplication {
     public static void main(String[] args) {
         ProductRepositoryImpl database = new ProductRepositoryImpl();
