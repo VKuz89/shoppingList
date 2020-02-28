@@ -44,8 +44,7 @@ public class ProductValidationImpl implements ProductValidation {
         boolean isValid = false;
         if (categoryNumber >= 0 && categoryNumber <= 5) {
             isValid = true;
-        } else
-        {
+        } else {
             throw new ProductValidationException("Error! Please enter valid category number!");
         }
         return isValid;

@@ -38,7 +38,7 @@ public class Product {
     }
 
     public void setName(String name) {
-            this.name = name;
+        this.name = name;
     }
 
     public BigDecimal getPrice() {
@@ -46,14 +46,14 @@ public class Product {
     }
 
     public void setPrice(BigDecimal price) {
-        this.price=price;
+        this.price = price;
         BigDecimal result;
-       if (discount.equals(BigDecimal.ZERO)) {
-           this.price = price;
-     } else {
-        result = price.multiply(discount.divide(new BigDecimal(100)));
-        this.price = price.subtract(result);
-     }
+        if (discount.equals(BigDecimal.ZERO)) {
+            this.price = price;
+        } else {
+            result = price.multiply(discount.divide(new BigDecimal(100)));
+            this.price = price.subtract(result);
+        }
     }
 
     @Override
@@ -76,20 +76,20 @@ public class Product {
 
     public void setCategory(int catNumber) {
         Category category = null;
-        if (catNumber == 1){
+        if (catNumber == 1) {
             this.category = category.MILK;
-        } else if (catNumber == 2){
+        } else if (catNumber == 2) {
             this.category = category.FRUITS;
-        } else if (catNumber == 3){
+        } else if (catNumber == 3) {
             this.category = category.VEGETABLES;
-        } else if (catNumber == 4){
+        } else if (catNumber == 4) {
             this.category = category.BREAD;
-        } else if (catNumber == 5){
+        } else if (catNumber == 5) {
             this.category = category.FISH;
-        } else if (catNumber == 0){
+        } else if (catNumber == 0) {
             this.category = null;
         }
-        }
+    }
 
     public Category getCategory() {
         return category;
