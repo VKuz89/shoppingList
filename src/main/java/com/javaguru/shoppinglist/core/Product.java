@@ -106,7 +106,4 @@ public class Product {
                 ", description='" + description + '\'' +
                 '}';
     }
-
-    // TODO implement equals and hash code methods here!
-
 }
